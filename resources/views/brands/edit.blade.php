@@ -45,5 +45,4 @@
             </x-buttons.confirm-red>
         </div>
     </form>
-    <livewire:counter />
 @endsection
