@@ -23,7 +23,7 @@
                     <p class="pb-2">
                         {{$brand->name}}
                     </p>
-                    <img src="{{ asset('storage/brands/' . $brand->logo ?? 'carShop.png') }}" alt="Brand" class="w-full h-32 object-contain sm:h-40 md:h-48 lg:h-56 xl:h-64">
+                    <img src="{{ asset('storage/brands/' . $brand->logo) }}" alt="Brand" class="w-full h-32 object-contain sm:h-40 md:h-48 lg:h-56 xl:h-64">
                 </div>            
             </a>
         @empty

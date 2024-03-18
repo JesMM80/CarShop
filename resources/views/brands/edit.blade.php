@@ -45,4 +45,6 @@
             </x-buttons.confirm-red>
         </div>
     </form>
+    @livewire('insert-car', ['brand_id' => $brand->id])
+    {{-- <livewire:insert-car :brand_id="$brand->id"/> --}}
 @endsection
