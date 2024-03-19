@@ -20,6 +20,7 @@ class Car extends Model
         'top_speed',
         'acceleration',
         'price',
+        'img_car',
     ];
 
     public function brand(){

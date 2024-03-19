@@ -92,12 +92,22 @@
                 </x-alerts.red-alert>
             @enderror
         </div>
+        <div class="flex items-center h-full mx-2">
+            <input type="file" wire:model="imgCar">
+            @if ($imgCar)
+                Foto preview:
+                <img src="{{ $imgCar->temporaryUrl() }}">
+            @endif
+        </div>
         <div class="text-center w-3/5 mx-auto my-5 sm:col-span-3">
             <x-buttons.confirm-blue>Insert</x-buttons.confirm-blue>
         </div>
     </form>
     <div>
-        <div class="border p-2 border-slate-100 shadow mb-2 hidden sm:grid sm:grid-cols-4 text-center font-bold">
+        <div class="border p-2 border-slate-100 shadow mb-2 hidden sm:grid sm:grid-cols-5 text-center font-bold">
+            <div>
+                Pic
+            </div>
             <div>
                 Model
             </div>
@@ -112,7 +122,11 @@
             </div>
         </div>
         @forelse ($cars as $car)
-            <div class="border p-2 border-slate-100 shadow mb-2 grid sm:grid-cols-4 text-center">
+            <div class="border p-2 border-slate-100 shadow mb-2 grid sm:grid-cols-5 text-center">
+                <div>
+                    <label class="font-bold sm:hidden">Pic: </label>
+                    <img src="{{asset('storage/images/cars/'.$car->img_car)}}" alt="{{$car->model}}" class="w-1/4 mx-auto">
+                </div>
                 <div>
                     <label class="font-bold sm:hidden">Model: </label>
                     {{$car->model}}
