@@ -67,16 +67,4 @@ class BrandController extends Controller
         return to_route('brands.index')->with('message','The brand was updated!');
     }
     
-    public function destroy(Brand $brand){
-
-        // Verifica si la imagen no es la predeterminada 'carShop.png' y si existe en el servidor
-        if ($brand->logo != 'carShop.png' && Storage::exists('public/brands/' . $brand->logo)) {
-            Storage::delete('public/brands/' . $brand->logo);
-        }
-
-        $brand->delete();
-        return to_route('brands.index');
-    }
-    
-    
 }

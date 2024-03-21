@@ -36,15 +36,37 @@
             </x-buttons.confirm-blue>
         </div>
     </form>
-    <form action="{{route('brands.destroy',$brand->id)}}" method="post">
-        @csrf
-        @method('delete')
-        <div class="text-center w-3/5 mx-auto my-5">
-            <x-buttons.confirm-red>
-                Delete brand
-            </x-buttons.confirm-red>
-        </div>
-    </form>
+    @livewire('delete-brand', ['brand_id' => $brand->id])
     @livewire('insert-car', ['brand_id' => $brand->id])
-    {{-- <livewire:insert-car :brand_id="$brand->id"/> --}}
 @endsection
+
+@push('sweetAlert')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('alertDeleteBrand', function(id) {
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "The brand will be delete",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Delete'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        Livewire.dispatch('deleteBrand', { brand: id })
+                        Swal.fire(
+                        'Deleted!',
+                        'The brand was deleted.',
+                        'success'
+                        )
+
+                    }
+                })
+            })
+        });
+    </script>
+@endpush

@@ -36,5 +36,5 @@ Route::middleware('auth')->group(function(){
     Route::post('/brands',[BrandController::class,'store'])->name('brands.store');
     Route::get('/edit/{brand}',[BrandController::class,'edit'])->name('brands.edit');
     Route::put('/brands/{brand}',[BrandController::class,'update'])->name('brands.update');
-    Route::delete('/brands/{brand}',[BrandController::class,'destroy'])->name('brands.destroy');
+    // Route::delete('/brands/{brand}',[BrandController::class,'destroy'])->name('brands.destroy');
 });

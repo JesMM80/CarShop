@@ -6,7 +6,6 @@
 
     @vite('resources/css/app.css')
     <title>CarShop - @yield('titulo')</title>
-    @stack('styles')
 </head>
 <body>
     @include('partials.header')
