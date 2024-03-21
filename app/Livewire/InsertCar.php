@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Car;
-use App\Models\Brand;
 use Livewire\Component;
+use Livewire\Attributes\On;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
@@ -75,6 +75,7 @@ class InsertCar extends Component
         session()->flash('message','The car was stored.');
     }
 
+    #[On('deleteCar')]
     public function deleteCar(Car $car_id){
 
         if (Storage::exists('public/images/cars/' . $car_id->img_car)) {
