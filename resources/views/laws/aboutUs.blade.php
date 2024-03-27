@@ -33,8 +33,7 @@
             <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-2">
                 ¡Bienvenido a nuestra familia de amantes de los coches deportivos!
                 [CarShop]
-            </p>
-                
+            </p>              
             
         </div>
     </div>

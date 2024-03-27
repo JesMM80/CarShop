@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -34,7 +35,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/brands',[BrandController::class,'index'])->name('brands.index');
     Route::get('/brands/create',[BrandController::class,'create'])->name('brands.create');
     Route::post('/brands',[BrandController::class,'store'])->name('brands.store');
-    Route::get('/edit/{brand}',[BrandController::class,'edit'])->name('brands.edit');
+    Route::get('/brands/{brand}',[BrandController::class,'edit'])->name('brands.edit');
     Route::put('/brands/{brand}',[BrandController::class,'update'])->name('brands.update');
-    // Route::delete('/brands/{brand}',[BrandController::class,'destroy'])->name('brands.destroy');
+    
+    Route::get('/cars/edit/{car}/{brand}',[CarController::class,'show'])->name('cars.show');
+    Route::put('/cars/{car}',[CarController::class,'update'])->name('cars.update');
+    
 });

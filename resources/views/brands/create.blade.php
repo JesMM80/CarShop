@@ -40,7 +40,7 @@
             <div class="mt-2">
                 <input type="file" accept="image/*" name="logo" class="p-2 mb-5 border sm:w-full md:w-11/12 rounded-lg">
                 @error('logo')
-                    <<x-alerts.red-alert>
+                    <x-alerts.red-alert>
                         {{$message}}
                     </x-alerts.red-alert>
                 @enderror
