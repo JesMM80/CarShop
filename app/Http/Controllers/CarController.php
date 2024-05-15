@@ -11,21 +11,22 @@ use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
-    public function show(Car $car, Brand $brand){
-        return view('cars.show',['car' => $car, 'brand' => $brand]);
+    public function show(Car $car, Brand $brand)
+    {
+        return view('cars.show', ['car' => $car, 'brand' => $brand]);
     }
 
-    public function update(UpdateCarRequest $request, Car $car){
+    public function update(UpdateCarRequest $request, Car $car)
+    {
 
         if ($request->file('img_car')) {
             //Borramos la imagen actual
             Storage::delete('public/images/cars/' . $car->img_car);
             $image = $request->file('img_car');
             $imagePath = $image->getRealPath();
-            $imageName = time(). '.' .$image->getClientOriginalExtension();
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
             GuardaImgCar::dispatch($imagePath, $imageName);
-            
-        }else{
+        } else {
             $imageName = $car->img_car;
         }
 
@@ -43,6 +44,22 @@ class CarController extends Controller
 
         $car->save();
 
-        return back()->with('message','The details of the car were updated.');
+        return back()->with('message', 'The details of the car were updated.');
+    }
+
+    public function create(Brand $brand)
+    {
+
+        return view('cars.create', ['brand' => $brand]);
+    }
+
+    public function index(Brand $brand)
+    {
+
+        $cars = Car::select('id', 'model', 'engine', 'hp', 'img_car')
+            ->where('brand_id', '=', $brand->id)
+            ->get();
+
+        return view('cars.index', ['brand' => $brand->id, 'cars' => $cars]);
     }
 }

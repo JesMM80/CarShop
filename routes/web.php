@@ -40,5 +40,7 @@ Route::middleware('auth')->group(function(){
     
     Route::get('/cars/edit/{car}/{brand}',[CarController::class,'show'])->name('cars.show');
     Route::put('/cars/{car}',[CarController::class,'update'])->name('cars.update');
+    Route::get('/cars/create/{brand}',[CarController::class,'create'])->name('cars.create');
+    Route::get('/cars/{brand}',[CarController::class,'index'])->name('cars.index');
     
 });

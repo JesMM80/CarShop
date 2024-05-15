@@ -11,9 +11,13 @@
     @include('partials.header')
 
     <main class="container mx-auto mt-5">
-        <h2 class="text-3xl font-bold mb-5 text-center">
-            @yield('titulo')
-        </h2>
+        @if (Route::currentRouteName() === 'brands.edit')
+            <x-menu-title-car :brand="$brand"/>
+        @else
+            <h2 class="text-3xl font-bold mb-5 text-center">
+                @yield('titulo')
+            </h2>
+        @endif
         @yield('contenido')
     </main>
     

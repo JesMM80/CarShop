@@ -1,5 +1,5 @@
 <div class="container mx-auto bg-slate-50">
-    <h2 class="text-center text-3xl font-bold mb-5">Insert Car</h2>
+
     @if (session('message'))
         <x-alerts.green>
             {{session('message')}}
