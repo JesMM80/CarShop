@@ -42,5 +42,6 @@ Route::middleware('auth')->group(function(){
     Route::put('/cars/{car}',[CarController::class,'update'])->name('cars.update');
     Route::get('/cars/create/{brand}',[CarController::class,'create'])->name('cars.create');
     Route::get('/cars/{brand}',[CarController::class,'index'])->name('cars.index');
+    Route::delete('/cars/{carId}/{brandId}',[CarController::class,'destroy'])->name('cars.destroy');
     
 });

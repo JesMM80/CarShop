@@ -43,11 +43,16 @@
                     {{$car->hp}}
                 </div>
                 <div>
-                    <button 
-                        wire:click="$dispatch('alertDelete',{{$car->id}})"                        
-                        class="flex justify-center items-center p-2 bg-red-500 border rounded-md text-white w-full cursor-pointer hover:bg-red-800 transition duration-700 font-bold">
-                        Delete car
-                    </button>
+                    <form action="{{route('cars.destroy',['carId' => $car->id, 'brandId' => $brand])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button 
+                            type="submit"
+                            class="flex justify-center items-center p-2 bg-red-500 border rounded-md text-white w-full cursor-pointer hover:bg-red-800 transition duration-700 font-bold"
+                        >
+                            Delete car
+                        </button>
+                    </form>
                 </div>
                 <div>
                     <x-buttons.blue-link 
@@ -60,6 +65,13 @@
         @empty
             <x-alerts.red-alert>There are no cars stored in the database</x-alerts.red-alert>
         @endforelse
+        
+        <div class="flex justify-center my-5">
+            <x-buttons.blue-link url="{{route('brands.edit',$brand)}}" class="margin-auto">
+                Back to brand details
+            </x-buttons.blue-link>
+        </div>
+
     </div>
     
 @endsection

@@ -103,14 +103,14 @@
                 <img src="{{asset('storage/images/cars/'.$car->img_car)}}" alt="{{$car->model}}" class="w-1/4 mx-auto">
                 <input type="file" name="img_car">
             </div>
-            <div class="text-center w-full sm:w-2/3 mx-auto my-5 sm:col-span-3">
+            <div class="text-center w-full sm:w-2/3 mx-auto mt-5 sm:col-span-3">
                 <x-buttons.confirm-blue>Update</x-buttons.confirm-blue>
             </div>
         </form>
-        <a href="{{route('brands.edit',$brand)}}" class="mt-5 py-2 px-4 bg-sky-800 hover:bg-sky-600 transition-colors border rounded-md text-white w-full sm:w-2/3 mx-auto block text-center">
-            Volver
+        <a href="{{route('cars.index',$brand)}}" class="mt-2 py-2 px-4 bg-sky-800 hover:bg-sky-600 transition-colors border rounded-md text-white w-full sm:w-2/3 mx-auto block text-center">
+            Go back
         </a>
-        {{-- <x-buttons.dblue-link href="{{route('brands.edit',$brand)}}">Volver</x-buttons.dblue-link> --}}
+        {{-- <x-buttons.dblue-link url="{{route('brands.edit',$brand)}}">Volver</x-buttons.dblue-link> --}}
     </div>
 </div>
 @endsection

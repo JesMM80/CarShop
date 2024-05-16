@@ -62,4 +62,10 @@ class CarController extends Controller
 
         return view('cars.index', ['brand' => $brand->id, 'cars' => $cars]);
     }
+
+    public function destroy(Car $carId, $brandId){
+        $carId->delete();
+
+        return to_route('cars.index',['brand' => $brandId]);
+    }
 }
