@@ -9,6 +9,7 @@
     <div id="menu" class="mt-4 md:mt-0 sm:flex-col md:flex-row md:w-auto md:flex md:items-center md:justify-between hidden">
         <nav>
             <x-buttons.menu-link :url="route('laws.about')">About Us </x-buttons.menu-link>
+            <x-buttons.menu-link :url="route('releases.index')">News </x-buttons.menu-link>
             <x-buttons.menu-link :url="route('laws.contact')">Contact</x-buttons.menu-link>
             <x-buttons.menu-link :url="route('brands.index')">Brands</x-buttons.menu-link>
         </nav>

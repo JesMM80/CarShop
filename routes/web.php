@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\StaticPagesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +45,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/cars/create/{brand}',[CarController::class,'create'])->name('cars.create');
     Route::get('/cars/{brand}',[CarController::class,'index'])->name('cars.index');
     Route::delete('/cars/{carId}/{brandId}',[CarController::class,'destroy'])->name('cars.destroy');
+
+    Route::get('/releases',[ReleaseController::class,'index'])->name('releases.index');
+    Route::get('releases/show/{release}',[ReleaseController::class,'show'])->name('releases.show');
+
+    Route::post('/comments',[CommentController::class,'store'])->name('comments.store');
     
 });
