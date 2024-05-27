@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -51,4 +52,5 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/comments',[CommentController::class,'store'])->name('comments.store');
     
+    Route::get('/countries',[CountryController::class,'index'])->name('countries.index');
 });

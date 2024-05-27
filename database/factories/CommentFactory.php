@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Release;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,11 +16,11 @@ class CommentFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {        
         return [
-            'release_id' => $this->faker->random_int(1,15),
-            'comment' => $this->faker->sentence(5),
-            'user' => $this->faker->name
+            'release_id' => Release::inRandomOrder()->first()->id,
+            'comment' => $this->faker->sentence(4),
+            'user' => $this->faker->name,
         ];
     }
 }
