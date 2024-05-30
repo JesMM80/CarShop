@@ -4,8 +4,10 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DealerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReleaseController;
 use App\Http\Controllers\StaticPagesController;
@@ -53,4 +55,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/comments',[CommentController::class,'store'])->name('comments.store');
     
     Route::get('/countries',[CountryController::class,'index'])->name('countries.index');
+
+    Route::get('/provinces',[ProvinceController::class,'index'])->name('provinces.index');
+
+    Route::get('/dealers',[DealerController::class,'index'])->name('dealers.index');
 });

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             ReleaseSeeder::class,
             CommentSeeder::class,
             CountrySeeder::class,
+            ProvinceSeeder::class,
+            DealerSeeder::class,
         ]);
 
         // \App\Models\User::factory(10)->create();
